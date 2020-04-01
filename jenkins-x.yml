@@ -1,4 +1,4 @@
-buildPack: ml-python-service
+buildPack: ml-python-service-gpu
 pipelineConfig:
 
   pipelines:

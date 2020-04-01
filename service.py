@@ -52,7 +52,6 @@ class IMDB(object):
         result = sess.run([output_name], {input_name: padded.numpy()})
 
         # Subset results
-        print(result)
         neg = str(round(result[0][0][0], 3))
         pos = str(round(result[0][0][1], 3))
 
