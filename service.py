@@ -39,16 +39,19 @@ class IMDB(object):
     """Handles sentiment prediction tests for IMDB dataset"""
 
     def on_get(self, req, resp):
-        resp.body = json.dumps({"message": "This service verifies a model using the IMDB Test data set. "
-                                           "Invoke by sending a POST request to the /imdb endpoint. "
-                                           "The client accepts plain/text requests"})
+        resp.body = json.dumps(
+            {"message": 
+            "This service verifies a model using the IMDB Test data set. "
+            "Invoke by sending a POST request to the /imdb endpoint. "
+            "The client accepts plain/text requests"})
         resp.status = falcon.HTTP_200
 
     def on_post(self, req, resp):
         req.client_accepts('text/plain')
         doc = str(req.stream.read())
         processed = TEXT.process(([TEXT.preprocess(doc)]))
-        padded = nn.ConstantPad1d((0, input_len - processed.shape[1]), 0)(processed)
+        padded = nn.ConstantPad1d(
+            (0, input_len - processed.shape[1]), 0)(processed)
         result = sess.run([output_name], {input_name: padded.numpy()})
 
         # Subset results
