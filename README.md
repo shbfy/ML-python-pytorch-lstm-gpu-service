@@ -12,6 +12,8 @@ POST|/imdb|IMDB|Classify a given movie review for positive and negative sentimen
 
 ### Local testing
 
+Execute a prediction using a POST request.
+
 `curl -X "POST" "http://localhost:8080/imdb \
       -H "Content-Type: text/plain \
       -d "Awesome movie!"`
