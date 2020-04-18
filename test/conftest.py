@@ -7,3 +7,4 @@ from falcon import testing
 def client():
     """Client to call tests against"""
     return testing.TestClient(falcon.API())
+
