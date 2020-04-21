@@ -40,10 +40,10 @@ class IMDB(object):
 
     def on_get(self, req, resp):
         resp.body = json.dumps(
-            {"message": 
-            "This service verifies a model using the IMDB Test data set. "
-            "Invoke by sending a POST request to the /imdb endpoint. "
-            "The client accepts plain/text requests"})
+            {"message":
+                 "This service verifies a model using the IMDB Test data set. "
+                 "Invoke by sending a POST request to the /imdb endpoint. "
+                 "The client accepts plain/text requests"})
         resp.status = falcon.HTTP_200
 
     def on_post(self, req, resp):

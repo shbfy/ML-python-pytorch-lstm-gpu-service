@@ -18,5 +18,6 @@ class StandaloneApplication:
 
 if __name__ == '__main__':
     app = StandaloneApplication(falcon.API())
-    httpd = simple_server.make_server('0.0.0.0', 8080, app.application)  # nosec
+    httpd = simple_server.make_server('0.0.0.0', 8080,
+                                      app.application)  # nosec
     httpd.serve_forever()
